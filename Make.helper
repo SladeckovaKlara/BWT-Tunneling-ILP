@@ -1,0 +1,2 @@
+include $ ~/sdsl-lite/Make.helper
+LIBS = -lsdsl -ldivsufsort -ldivsufsort64
