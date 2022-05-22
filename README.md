@@ -12,6 +12,6 @@ The bundle consists of two parts:
 - GNU make
 
 ## Installation
-The second part requires its own programs, so you may read the README included there.
+The second part requires its own installations, so you may read the README included there.
 
 Set up the correct paths-prefixes in all files in the lib/pkgconfig directory.
