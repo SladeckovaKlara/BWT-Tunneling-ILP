@@ -5,7 +5,7 @@ This bundle of programs is part of the thesis
 	Klára Sládečková, 2022
 
 The bundle consists of two parts:
-1. Input files containig [test data](testdata/).
+1. Input files containing [test data](testdata/).
 2. Programs that show the [application of tunneling using ILP solver in sequence analysis](seqana/).
 
 ## General requirements
