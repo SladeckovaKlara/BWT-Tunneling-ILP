@@ -324,13 +324,15 @@ vector <pair <typename t_tfm_index_type::size_type, pair <typename t_tfm_index_t
                 pair <size_type, pair <size_type, size_type>> block2 = blocks[i];
                 vector <size_type> start_pos2 (csa.begin() + block2.second.first, csa.begin() + block2.second.second);
 
+                for (int i = 0; i < 2; i++) {
                 //check if it is an obvious critical collision (first positions is equal or first column of the wider block is shared)
                 if ((block2.second.first == block.second.first) || (block2.first >= block.first && column_in_sorted_block<t_tfm_index_type> (start_pos2, start_pos, block.first, 0))
                     || (block2.first <= block.first && sorted_column_in_block<t_tfm_index_type> (start_pos, start_pos2, block2.first, 0))) {
                     critical_collisions.push_back(make_pair(i, blocks.size()));
                     continue;
                 }
-
+                }
+                /*
                 //check if they do collide, i.e. if the first positions of the inner block are not shared
                 if ((block2.first > block.first && !sorted_column_in_block<t_tfm_index_type> (start_pos, start_pos2, block2.first, 0))
                     || (block2.first <= block.first && !column_in_sorted_block<t_tfm_index_type> (start_pos2, start_pos, block.first, 0)))
@@ -346,7 +348,7 @@ vector <pair <typename t_tfm_index_type::size_type, pair <typename t_tfm_index_t
                     }
                 } else {
                     critical_collisions.push_back(make_pair(i, blocks.size()));
-                }
+                }*/
             }
             blocks.push_back(block);
         }
@@ -527,6 +529,22 @@ string construct_tbwt ( t_tfm_index_type &tfm_index, t_csa_wt_type &&csa, cache_
 
         uint64_t text_len = csa.size();
         csa = t_csa_wt_type(); //remove csa object as it is no longer required
+	
+        cout << "L" << endl;
+        for (size_type i = 0; i < L_buf.size(); i++)
+                cout << L_buf[i];
+        cout << endl << endl;
+
+
+	cout << "dout" << endl;
+	for (size_type i = 0; i < p; i++)
+		cout << dout[i];
+	cout << endl << endl;
+	
+	cout << "din" << endl;
+	for (size_type i = 0; i < q; i++)
+		cout << din[i];
+	cout << endl;
 
         construct_tfm_index(tfm_index, text_len, move(L_buf), move(dout), move(din));
 
